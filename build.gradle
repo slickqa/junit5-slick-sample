@@ -1,0 +1,22 @@
+plugins {
+	id 'java'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testImplementation('org.junit.jupiter:junit-jupiter:5.5.1')
+	compile group: 'com.slickqa', name: 'slickqa-junit-jupiter', version: '1.0.0-19'
+	// including jaxb dependency will fix compile warnings in java 11
+	compile group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.4.0-b180830.0438'
+
+}
+
+test {
+	useJUnitPlatform()
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}
