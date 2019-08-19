@@ -14,6 +14,16 @@ dependencies {
 
 }
 
+jar {
+	manifest {
+		attributes "Main-Class": "com.example.RunTests"
+	}
+
+	from {
+		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+}
+
 test {
 	useJUnitPlatform()
 	testLogging {
