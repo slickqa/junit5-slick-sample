@@ -8,10 +8,11 @@
  * http://www.eclipse.org/legal/epl-v20.html
  */
 
-package com.example.project;
+package com.example.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.example.project.Calculator;
 import com.slickqa.jupiter.SlickBaseTest;
 import com.slickqa.jupiter.annotations.Step;
 import com.slickqa.jupiter.annotations.TestCaseInfo;

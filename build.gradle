@@ -24,6 +24,16 @@ jar {
 	}
 }
 
+sourceSets {
+	test {
+		java {
+			srcDirs = ['src/main/java']
+		}
+	}
+}
+
+
+
 test {
 	useJUnitPlatform()
 	testLogging {

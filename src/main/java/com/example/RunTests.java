@@ -1,26 +1,33 @@
 package com.example;
 
 
+import com.example.project.Calculator;
+import org.junit.platform.launcher.Launcher;
+import org.junit.platform.launcher.LauncherDiscoveryRequest;
+import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
+import org.junit.platform.launcher.core.LauncherFactory;
+
 import java.util.logging.Logger;
+
+import static org.junit.platform.engine.discovery.DiscoverySelectors.*;
 
 public class RunTests {
     private static final Logger logger = Logger.getLogger(RunTests.class.getName());
 
     public static void main(String[] args) throws Exception {
 
-        if ("NOT_SET".equals(System.getProperty("host", "NOT_SET"))) {
-            logger.info("You need to pass in a -Dhost param java opt");
-            System.exit(-1);
-        }
-        if ("true".equalsIgnoreCase(System.getProperty("scheduleTests", "false"))) {
-            logger.info("We will just schedule the tests in Slick and not run them");
-            // since we are scheduling tests we will remove any retry
-            System.setProperty("maxRetry", "0");
-        }
-        if ("true".equalsIgnoreCase(System.getProperty("doNotRunTests", "false"))) {
-            logger.info("We will just list out the tests, we will not run them");
-        }
+        // This is where you would determine what tests could be run
 
+        //if ("NOT_SET".equals(System.getProperty("host", "NOT_SET"))) {
+        //    logger.info("You need to pass in a -Dhost param java opt");
+        //    System.exit(-1);
+        //}
+        LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder
+                .request()
+                .selectors(selectClass("com.example.test.CalculatorTests"))
+                .build();
+        Launcher launcher = LauncherFactory.create();
+        launcher.execute(request);
         System.exit(0);
     }
 }
