@@ -1,5 +1,4 @@
-# junit5-slick-sample
-
+# junit5-slick-sample 
 The `junit5-slick-sample` project demonstrates how to run tests based on JUnit
 Jupiter and report results to slick using [slickqa-junit-jupiter extensions].  
 
@@ -11,7 +10,26 @@ There are two seperate examples of running tests in this project.  For both exam
 
 1.  Running tests with gradle.  
     
-    `./gradlew build` or `./gradlew test` will run tests. When building gradle will skip testing if they've already been run unless changes are detected.
+    - Tests will run with `./gradlew build` or `./gradlew test` When building gradle will skip testing if they've already been run unless changes are detected.
+    - System properties needed for Slick can easily be set in your gradle build file.  "slick.build" is an example of a system property that comes from an environment variable"
+    
+    ```
+    test {
+       	// Set these to report to slick.  You'll notice we get the build from an environment variable
+       	//systemProperty "slick.scheduleTests", "false"
+       	//systemProperty "slick.baseurl", "http://slick.mycompany.com"
+       	//systemProperty "slick.project", "higg"
+       	//systemProperty "slick.release", "releaseName"
+       	//systemProperty "slick.build", System.getenv("BUILD")
+       	//systemProperty "slick.testplan", "testplanName"
+       	useJUnitPlatform()
+       	testLogging {
+        	events "passed", "skipped", "failed"
+        	}
+    }
+    ```
+       	
+       	
 2.  Packaging an executable jar and running tests from main.  
     - compile and create the jar just by building.  jar location is `build/libs/junit5-slick-sample.jar`
     - An example of running the jar: 

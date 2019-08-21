@@ -35,6 +35,13 @@ sourceSets {
 
 
 test {
+	// Set these to report to slick.  You'll notice we ge the build from an environment variable
+	//systemProperty "slick.scheduleTests", "false"
+	//systemProperty "slick.baseurl", "http://slick.mycompany.com"
+	//systemProperty "slick.project", "higg"
+	//systemProperty "slick.release", "releaseName"
+	//systemProperty "slick.build", System.getenv("BUILD")
+	//systemProperty "slick.testplan", "testplanName"
 	useJUnitPlatform()
 	testLogging {
 		events "passed", "skipped", "failed"
