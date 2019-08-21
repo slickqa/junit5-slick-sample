@@ -9,10 +9,10 @@ There are two seperate examples of running tests in this project.  For both exam
 (Example: "http://slick.yourcompany.com")
 
 
-1.  ###Running tests with gradle.  
+1.  Running tests with gradle.  
     
     `./gradlew build` or `./gradlew test` will run tests. When building gradle will skip testing if they've already been run unless changes are detected.
-2.  ###Packaging an executable jar and running tests from main.  
+2.  Packaging an executable jar and running tests from main.  
     - compile and create the jar just by building.  jar location is `build/libs/junit5-slick-sample.jar`
     - An example of running the jar: 
     
