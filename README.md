@@ -18,7 +18,7 @@ There are two seperate examples of running tests in this project.  For both exam
        	// Set these to report to slick.  You'll notice we get the build from an environment variable
        	//systemProperty "slick.scheduleTests", "false"
        	//systemProperty "slick.baseurl", "http://slick.mycompany.com"
-       	//systemProperty "slick.project", "higg"
+       	//systemProperty "slick.project", "coolProject"
        	//systemProperty "slick.release", "releaseName"
        	//systemProperty "slick.build", System.getenv("BUILD")
        	//systemProperty "slick.testplan", "testplanName"
